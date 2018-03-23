@@ -3,12 +3,14 @@ a{
 }
 $border: 1px solid rgb(156, 91, 228);
 $mainColor: #1428a0;
+$gray: #dadada;
 $font01 : 'SECGCWL', sans-serif;
+$lightBlack: #2f2f2f;
 #gnb_wrapper{
    position: relative;
    width: 100%;
    height: 64px;
-   border-bottom: 1px solid #dadada;
+   border-bottom: 1px solid $gray;
 
    .gnb_innerWrapper{
       position: relative;
@@ -49,15 +51,18 @@ $font01 : 'SECGCWL', sans-serif;
             }
          }
       }
+      //#logo부분 끝
 
       #mainNav{
-         ul{
+         > ul{
             height: 64px;
-            li{
+            > li{
                display: inline-block;
                height: 64px;
                line-height: 64px;
                padding: 0 10px;
+               // -webkit-transition: .5s;
+               // transition: .5s;
                font: {
                   family: $font01;
                   size: 14px;
@@ -67,26 +72,108 @@ $font01 : 'SECGCWL', sans-serif;
                   padding: 0;
                }
                &:hover{
-                  a{
+                  > a{
                      color: $mainColor;
                      border-bottom: 2px solid $mainColor;
                   }
+                  > .subNav{
+                     display: block;
+                     opacity: 1;
+                  }
                }
-               a{
+
+               > a{
                   display: inline-block;
                   height: 62px;
                }
+               //펼쳐지는 메인네비
                div{
-                  &.test01{
+                  &.subNav{
+                     display: none;
+                     opacity: 0;
                      width: 100vw; //jquery로 주기
+                     background-color: #fff;
                      position: absolute;
-                     border: 1px dashed $mainColor;
-                     background-color: #dadada;
-                     height: 100px;
                      margin-left: -166px;
+                     border-bottom: 1px solid $gray;
+                     top: 65px;
+                     // transition: .5s;
                      div{
-                        &.test02{
-
+                        &.inner_subNav{
+                           max-width: 1230px;
+                           height: 100%;
+                           margin: 0 auto;
+                           padding-top: 47px;
+                           padding-bottom: 14px;
+                           padding-right: 45px;
+                           padding-left: 25px;
+                           -webkit-box-sizing: border-box;
+                           box-sizing: border-box;
+                           overflow: hidden;
+                           > ul{
+                              float: left;
+                              width: 20%;
+                              height: auto;
+                              padding-right: 24px;
+                              &:nth-child(3){
+                                 padding-left: 10px;
+                                 border-left: 1.5px solid $gray;
+                                 li{
+                                    &.subNav_title_second{
+                                       margin-top: 17px;
+                                    }
+                                    &:last-child{
+                                       margin-bottom: 0;
+                                    }
+                                 }
+                              }
+                              &.empty_contents{
+                                 opacity: 0;
+                              }
+                              > li {
+                                 height: 20px;
+                                 margin-bottom: 10px;
+                                 font-weight: normal;
+                                 line-height: 20px;
+                                 &.subNav_title{
+                                    margin-bottom: 17px;
+                                 }
+                                 > a{
+                                    &:hover{
+                                       color: $mainColor;
+                                       text-decoration: underline;
+                                    }
+                                 }
+                                 > span{
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+                  &.subNav_appliances{
+                     ul{
+                        &:nth-child(2){
+                        li{
+                           &:nth-child(3){
+                              span{
+                                 width: 11px;
+                                 height: 11px;
+                                 display: inline-block;
+                                 background:{
+                                    image: url(../img/sp-gnb-pc.png);
+                                    position: 0 -22px;
+                                 }
+                              }
+                              &:hover{
+                                 span{
+                                    background-position: -13px -22px;
+                                 }
+                              }
+                           }
+                        }
                         }
                      }
                   }
@@ -94,12 +181,13 @@ $font01 : 'SECGCWL', sans-serif;
             }
          }
       }
+      //#mainNav 끝
 
       #sideNav{
          right: 0;
-         ul{
+         > ul{
             height: 64px;
-            li{
+            >li{
                display: inline-block;
                line-height: 64px;
                padding: 0 14px;
@@ -109,14 +197,14 @@ $font01 : 'SECGCWL', sans-serif;
                   weight: 700;
                }
                &:hover{
-                  a{
+                  > a{
                      color: $mainColor;
                      span{
                         background-position: -13px -22px;
                      }
                   }
                }
-               a{
+               > a{
                   height: 64px;
                   span{
                      display: inline-block;
@@ -129,7 +217,7 @@ $font01 : 'SECGCWL', sans-serif;
                   }
                }
                &:nth-child(3){
-                  a{
+                  > a{
                      display: inline-block;
                      width: 18px;
                      height: 18px;
@@ -139,13 +227,13 @@ $font01 : 'SECGCWL', sans-serif;
                      }
                   }
                   &:hover{
-                     a{
+                     > a{
                         background-position: -118px -95px;
                      }
                   }
                }
                &:nth-child(4){
-                  a{
+                  > a{
                      display: inline-block;
                      width: 18px;
                      height: 18px;
@@ -155,13 +243,13 @@ $font01 : 'SECGCWL', sans-serif;
                      }
                   }
                   &:hover{
-                     a{
+                     > a{
                         background-position: -53px -22px;
                      }
                   }
                }
                &:nth-child(5){
-                  a{
+                  > a{
                      display: inline-block;
                      width: 20px;
                      height: 18px;
@@ -171,7 +259,7 @@ $font01 : 'SECGCWL', sans-serif;
                      }
                   }
                   &:hover{
-                     a{
+                     > a{
                         background-position: -97px -23px;
                      }
                   }
@@ -179,6 +267,166 @@ $font01 : 'SECGCWL', sans-serif;
             }
          }
       }
-
+      //#sideNav 끝
    }
+}
+@mixin font_Section01($size, $weight){
+   font: {
+      family: $font01;
+      size: $size;
+      weight: $weight;
+   }
+   color: $lightBlack;
+   @content;
+}
+
+@mixin transition_section01($transitions...){
+   -webkit-transition: $transitions;
+   -moz-transition: $transitions;
+   -o-transition: $transitions;
+   transition: $transitions;
+}
+
+@mixin borderRadius_section01($borderR){
+   -webkit-border-radius: $borderR;
+   -moz-border-radius: $borderR;
+   -o-border-radius: $borderR;
+   border-radius: $borderR;
+}
+#mainSlide{
+   position: relative;
+   overflow: hidden;
+   // 버튼
+   #buttons{
+      margin-top: -5.4vw;
+      height: 5.4vw;
+      box-sizing: border-box;
+      a{
+         display: inline-block;
+         width: 42px;
+         height: 78px;
+         top: 20vw;
+         border:1px solid red;
+         z-index: 1;
+         position: absolute;
+          text-indent: -999px;
+          overflow: hidden;
+         &.prev{
+            left: 5.183vw;
+            background: url(../img/section01/prev_arrow_img.png);
+            background-size: contain;
+         }
+         &.next{
+            right: 5.183vw;
+            background: url(../img/section01/next_arrow_img.png);
+            background-size: contain;
+         }
+      }
+   }
+
+   //페이징버튼
+   #paging{
+      display: block;
+      position: absolute;
+      bottom: 50px;
+      width: 100%;
+      text-align: center;
+      font-size: 0;
+      z-index: 1;
+      li{
+         display: inline-block;
+         a{
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            overflow: hidden;
+            margin-right: 8px;
+            vertical-align: top;
+            border-radius: 14px;
+            border: 1px solid #bb0000;
+            box-sizing: border-box;
+            font-size: 12px;
+         }
+      }
+   }
+
+   //재생/정지버튼
+   #control{
+      a{
+
+      }
+   }
+
+   //메인슬라이드
+   #show{
+      // width: 300px;
+      .totalWidth{
+         // width: 1500px;
+         li{
+            float: left;
+            position: relative;
+            // width: 300px;
+            img{
+               width: 100%;
+            }
+            .mainSlide_txt{
+               max-width: 1000px;
+               position: absolute;
+               top: 11.65vw;
+               left: 19.79vw;
+               .main_tit{
+                  @include font_Section01(3.8vw, 600);
+                  line-height: 4.5vw;
+                  margin-bottom: 2.2vw;
+                  span{
+
+                  }
+               }
+               .sub_tit{
+                  @include font_Section01(26px, 600);
+                  line-height: 32px;
+                  margin-bottom: 21px;
+               }
+               .ms_btn{
+                  a{
+                     border: 1px solid $lightBlack;
+                     color: $lightBlack;
+                     display: inline-block;
+                     margin-right: 10px;
+                     min-width: 120px;
+                     font-size: 14px;
+                     @include borderRadius_section01(25px);
+                     @include transition_section01(all 0.3s ease-out);
+                     &:hover{
+                        background-color: $lightBlack;
+                        color: #fff;
+                     }
+                     span{
+                        display: inline-block;
+                        padding: 14px 40px 13px;
+                        font-family: $font01;
+                     }
+                  }
+               }
+               .kakao_event{
+                  @include font_Section01(0.9vw, 600);
+                  margin: 0.5vw 0 0;
+               }
+               .kakao_date{
+                  @include font_Section01(0.9vw, 600);
+                  margin: 0.3vw 0 1.9vw;
+               }
+               .gift_event{
+                  @include font_Section01(18px, 600);
+               }
+               .gift_date{
+                  @include font_Section01(18px, 600);
+                  margin: 5px 0 40px;
+               }
+            }
+         }
+      }
+   }
+
 }
