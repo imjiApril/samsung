@@ -97,6 +97,7 @@ $lightBlack: #2f2f2f;
                      margin-left: -166px;
                      border-bottom: 1px solid $gray;
                      top: 65px;
+                     z-index: 2;
                      // transition: .5s;
                      div{
                         &.inner_subNav{
@@ -325,7 +326,7 @@ $lightBlack: #2f2f2f;
    }
 
    //페이징버튼
-   #paging{
+   #controller{
       display: block;
       position: absolute;
       bottom: 50px;
@@ -333,7 +334,7 @@ $lightBlack: #2f2f2f;
       text-align: center;
       font-size: 0;
       z-index: 1;
-      li{
+      .paging{
          display: inline-block;
          a{
             display: inline-block;
@@ -344,19 +345,33 @@ $lightBlack: #2f2f2f;
             margin-right: 8px;
             vertical-align: top;
             border-radius: 14px;
-            border: 1px solid #bb0000;
+            border: 1px solid $gray;
             box-sizing: border-box;
             font-size: 12px;
+            &.paging_active{
+               background-color: #fff;
+            }
          }
       }
-   }
-
-   //재생/정지버튼
-   #control{
-      a{
-
+      .play{
+         // display: inline-block;
+         display: none;
+         width: 13px;
+         height: 13px;
+         vertical-align: top;
+         background-size: 13px;
+         background: blue url(../img/section01/btn_play.png) 0 no-repeat;
+      }
+      .stop{
+         display: inline-block;
+         width: 16px;
+         height: 14px;
+         vertical-align: top;
+         background-size: 13px;
+         background: green url(../img/section01/btn_stop.png) no-repeat 0 0;
       }
    }
+
 
    //메인슬라이드
    #show{
@@ -429,4 +444,49 @@ $lightBlack: #2f2f2f;
       }
    }
 
+}
+
+#banner{
+   &::before{
+      display: block;
+      content: "";
+      width: 40px;
+      height: 5px;
+      background-color: black;
+      margin: 40px auto 0;
+
+   }
+
+   h2{
+      text-align: center;
+      font-size: 32px;
+      padding: 29px 0px 6px;
+      @include font_Section01(32px, bold);
+   }
+   .banner_wrapper{
+      max-width: 1440px;
+      margin:0 auto;
+      >div{
+         position: relative;
+         float:left;
+         width: 33.33%;
+         >img{
+            width: 100%;
+         }
+         >div{
+            position: absolute;
+            >p{
+               @include font_Section01(17px, bold);
+               text-align: center;
+               // position: absolute;
+            }
+         }
+      }
+      &::after{
+         content:"";
+         display: block;
+         clear:both;
+      }
+
+   }
 }

@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="css/reset.css">
    <link rel="stylesheet" href="css/main.css">
    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-   <script type="text/javascript" src="js/jquery-ui.js"></script>
+   <!-- <script type="text/javascript" src="js/jquery-ui.js"></script> -->
    <script type="text/javascript" src="js/main.js"></script>
    <!--[if lt IE 9]>
      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -273,20 +273,19 @@
       <a class="next" href="">다음페이지</a>
    </div>
 
-   <!-- 페이징버튼 -->
-   <ul id="paging">
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-   </ul>
-
-   <!-- 재생/정지버튼 -->
-   <div id="control">
-      <a href=""></a>
-      <a href=""></a>
+   <!-- 페이징버튼/재생버튼 -->
+   <div id="controller">
+      <div class="paging">
+         <a class="paging_active" href=""></a>
+         <a href=""></a>
+         <a href=""></a>
+         <a href=""></a>
+         <a href=""></a>
+      </div>
+      <a class="play" href=""></a>
+      <a class="stop" href=""></a>
    </div>
+
 
    <div id="show">
       <ul class="totalWidth">
@@ -380,7 +379,23 @@
    </div>
 
  </section>
- <section></section>
+ <section id="banner">
+    <h2>Discover the Galaxy</h2>
+    <div class="banner_wrapper">
+       <div>
+          <img src="img/section02/180312_Star_order_thumbnail_720x405.jpg" alt="">
+          <div><p>갤럭시 스튜디오 위치 찾기</p></div>
+       </div>
+       <div>
+          <img src="img/section02/HomeKV_S9_02_Mobile_0228_thumnail_02.jpg" alt="">
+          <p>온라인 체험하기</p>
+       </div>
+       <div>
+          <img src="img/section02/HomeKV_S9_02_Mobile_0309_thumnail_03.jpg" alt="">
+          <p>특별 보상 혜택 보기</p>
+       </div>
+    </div>
+ </section>
  <section></section>
  <section></section>
  <section></section>

@@ -79,6 +79,7 @@ a {
   margin-left: -166px;
   border-bottom: 1px solid #dadada;
   top: 65px;
+  z-index: 2;
 }
 #gnb_wrapper .gnb_innerWrapper #mainNav > ul > li div.subNav div.inner_subNav {
   max-width: 1230px;
@@ -230,7 +231,7 @@ a {
   background: url(../img/section01/next_arrow_img.png);
   background-size: contain;
 }
-#mainSlide #paging {
+#mainSlide #controller {
   display: block;
   position: absolute;
   bottom: 50px;
@@ -239,10 +240,10 @@ a {
   font-size: 0;
   z-index: 1;
 }
-#mainSlide #paging li {
+#mainSlide #controller .paging {
   display: inline-block;
 }
-#mainSlide #paging li a {
+#mainSlide #controller .paging a {
   display: inline-block;
   width: 14px;
   height: 14px;
@@ -251,10 +252,29 @@ a {
   margin-right: 8px;
   vertical-align: top;
   border-radius: 14px;
-  border: 1px solid #bb0000;
+  border: 1px solid #dadada;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 12px;
+}
+#mainSlide #controller .paging a.paging_active {
+  background-color: #fff;
+}
+#mainSlide #controller .play {
+  display: none;
+  width: 13px;
+  height: 13px;
+  vertical-align: top;
+  background-size: 13px;
+  background: blue url(../img/section01/btn_play.png) 0 no-repeat;
+}
+#mainSlide #controller .stop {
+  display: inline-block;
+  width: 16px;
+  height: 14px;
+  vertical-align: top;
+  background-size: 13px;
+  background: green url(../img/section01/btn_stop.png) no-repeat 0 0;
 }
 #mainSlide #show .totalWidth li {
   float: left;
@@ -331,6 +351,51 @@ a {
   font-weight: 600;
   color: #2f2f2f;
   margin: 5px 0 40px;
+}
+
+#banner::before {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 5px;
+  background-color: black;
+  margin: 40px auto 0;
+}
+#banner h2 {
+  text-align: center;
+  font-size: 32px;
+  padding: 29px 0px 6px;
+  font-family: "SECGCWL", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2f2f2f;
+}
+#banner .banner_wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+#banner .banner_wrapper > div {
+  position: relative;
+  float: left;
+  width: 33.33%;
+}
+#banner .banner_wrapper > div > img {
+  width: 100%;
+}
+#banner .banner_wrapper > div > div {
+  position: absolute;
+}
+#banner .banner_wrapper > div > div > p {
+  font-family: "SECGCWL", sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: #2f2f2f;
+  text-align: center;
+}
+#banner .banner_wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /*# sourceMappingURL=main.css.map */
